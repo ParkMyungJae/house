@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내집꾸미기</title>
+    <link rel="stylesheet" href="./resources/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./resources/jquery-ui.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./resources/fontawesome/css/font-awesome.min.css">
+    <script src="./resources/jquery-3.4.1.min.js"></script>
+    <script src="./resources/jquery-ui.min.js"></script>
+    <script src="./store.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="display">
+            <div class="headerBox">
+                <a href="./">로고</a>
+                <a href="./">홈</a>
+                <a href="#">온라인 집들이</a>
+                <a href="./store.html">스토어</a>
+                <a href="#">전문가</a>
+                <a href="#">시공 견적</a>
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+            </div>
+
+            <div class="headerBox_MOBILE" style="display: none;">
+                <div class="mobile_nav_box">
+                    <a href="./">로고</a>
+                    <a href="#">홈</a>
+                    <a href="#">온라인 집들이</a>
+                    <a href="#">스토어</a>
+                    <a href="#">전문가</a>
+                    <a href="#">시공 견적</a>
+                </div>
+
+                <div class="mobile_login_box">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="display">
+        <div class="search_bar">
+            <form action="./search.html?search=" method="GET">
+                <input type="search" placeholder="검색" name="search">
+            </form>
+        </div>
+
+        <div class="store">
+            <h1 style="margin: 50px 0; text-align: center;">집들이 스토어</h1>
+
+            <form action="" method="GET" id="store_form">
+
+            </form>
+
+            <div class="drop_cart">
+                <div class="drop_cart_text">
+                    <p>이곳에 상품을 <br> 넣어주세요.</p>
+                </div>
+
+                <button class="btn btn-primary cart_viewer">장바구니 보기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 장바구니 부분 -->
+    <div class="shipping_cart">
+        <div class="display shipping_cart_display">
+            <div class="shipping_cart_box">
+                <div class="shipping_cart_close"><span class="fa fa-times"></span></div>
+                <center>
+                    <h1>장바구니</h1>
+                </center>
+                <div class="cart_content">
+                    <!-- <h5 style="text-align: center;">장바구니가 비어있네요~</h5> -->
+
+
+                </div>
+                <div class="shipping_cart_detail" style="margin: 10px; background-color: #fff;">
+                    <h6 class="cart_all_pay">총합계 : 0원</h6>
+                    <button class="btn btn-primary" style="width: 100% !important; height: 50px;">구매하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 구매하기 창 -->
+    <div class="buy_box" style="display: none; z-index: 10;">
+        <div class="display buy_form" style="position: relative;">
+            <span class="fa fa-times buy_box_close_button"
+                style="position: absolute; top: 10px; right: 10px; font-size: 34px; cursor: pointer;"></span>
+
+            <form action="#" method="POST">
+                <div class="input-form">
+                    <label>구매자 이름</label>
+                    <input type="text" name="name" id="name">
+                </div>
+
+                <div class="input-form">
+                    <label>주소</label>
+                    <input type="text" name="address" id="address">
+                </div>
+
+                <button type="button" class="btn btn-primary" style="width: 100%;">구매 완료</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 구매 내역 창 -->
+    <div class="buyed_box" style="display: none; z-index: 10;">
+        <div class="display buyed_form" style="position: relative;">
+            <span class="fa fa-times buyed_box_close_button"
+                style="position: absolute; top: 10px; right: 10px; font-size: 34px; cursor: pointer;"></span>
+
+            <h1>영수증</h1>
+
+            <div class="buyedPro"></div>
+            
+            <h5 id="buyed_total">총합 : 1,000,000원</h5>
+            <h5 id="buyed_date"></h5>
+        </div>
+    </div>
+
+    <script>
+        //장바구니 열거나 닫기
+        document.querySelector(".cart_viewer").addEventListener("click", () => {
+            $(".shipping_cart").fadeIn();
+            $(".shipping_cart").css("display", "flex");
+        });
+
+        document.querySelector(".shipping_cart_close > span").addEventListener("click", () => {
+            $(".shipping_cart").fadeOut();
+        });
+    </script>
+
+    <footer>
+        <div class="display">
+            <p>Copyright (C) 2020 by MyHome Inc All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
